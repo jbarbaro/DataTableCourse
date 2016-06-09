@@ -4,11 +4,11 @@ description : This chapter provides a basic overview of `data.table` by introduc
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Benefits of data.table
 
 > "data.table inherits from data.frame. It offers fast subset, fast grouping, fast update, fast ordered joins and list columns in a short and flexible syntax, for faster development.
-    - Matt Dowle, data.table package maintainer                                                                                                                  - 
+    <br>- Matt Dowle, data.table package maintainer   </br>                                                                                                          
 
 The `data.table` package is a powerful tool for storing big data in R. You can think of it as a data.frame 2.0: combining aspects of `dplyr` with `data.table` and resulting in a faster and more efficient way of manipulating, storing and reading data. 
 
