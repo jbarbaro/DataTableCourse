@@ -1,149 +1,51 @@
 ---
-title       : Insert the chapter title here
-description : Insert the chapter description here
+title       : Introduction To data.table
+description : This chapter provides a basic overview of `data.table` by introducing the user to the methodology and syntax used for data analytics
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
---- type:VideoExercise lang:r xp:50 skills:1 key:24df2f6cd0
-## Analyze movie ratings
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
-## A really bad movie
-
-Have a look at the plot that showed up in the viewer to the right. Which type of movie has the worst rating assigned to it?
-
-*** =instructions
-- Adventure
-- Action
-- Animation
-- Comedy
-
-*** =hint
-Have a look at the plot. Which color does the point with the lowest rating have?
-
-*** =pre_exercise_code
-```{r}
-# The pre exercise code runs code to initialize the user's workspace. You can use it for several things:
-
-# 1. Preload a dataset. The code below will read the csv that is stored at the URL's location.
-# The movies variable will be available in the user's console.
-movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
-
-# 2. Pre-load packages, so that users don't have to do this manually.
-library(ggplot2)
-
-# 3. Create a plot in the viewer, that students can check out while reading the exercise
-ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
-```
-
-*** =sct
-```{r}
-# The sct section defines the Submission Correctness Tests (SCTs) used to
-# evaluate the student's response. All functions used here are defined in the 
-# testwhat R package
-
-msg_bad <- "That is not correct!"
-msg_success <- "Exactly! There seems to be a very bad action movie in the dataset."
-
-# Use test_mc() to grade multiple choice exercises. 
-# Pass the correct option (Action, option 2 in the instructions) to correct.
-# Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
-test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
-```
-
 --- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
-## More movies
+## Benefits of data.table
 
-In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
+> "data.table inherits from data.frame. It offers fast subset, fast grouping, fast update, fast ordered joins and list columns in a short and flexible syntax, for faster development.
+    - Matt Dowle, data.table package maintainer                                                                                                                  - 
 
-A dataset with a selection of movies, `movie_selection`, is available in the workspace.
+The `data.table` package is a powerful tool for storing big data in R. You can think of it as a data.frame 2.0: combining aspects of `dplyr` with `data.table` and resulting in a faster and more efficient way of manipulating, storing and reading data. 
 
-*** =instructions
-- Check out the structure of `movie_selection`.
-- Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
-- Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
+But instead of talking my word for it, let me prove it to you:
 
-*** =hint
-- Use `str()` for the first instruction.
-- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
-- For the plot, use `plot(x = ..., y = ..., col = ...)`. 
+**Speed Test**
 
-*** =pre_exercise_code
-```{r}
-# Pre-load a package in the workspace
-library(MindOnStats)
+To show the speed of `data.table` we will use an example that compares `data.table` and `data.frame` when setting values in a loop:
 
-# You can prepare the data before the student starts:
-data(Movies)
-movie_selection <- Movies[Movies$Genre %in% c("action", "animated", "comedy"),c("Genre", "Rating", "Run")]
+m = matrix(1, nrow = 2e6L, ncol = 100L)
+DF = as.data.frame(m)
+DT = as.data.table(m)    
 
-# You can also clean up data so that it's not available in the student's workspace anymore:
-rm(Movies)
-```
+system.time(for (i in 1:1000) DF[i, 1] = i)
+speed = 15.856 seconds
 
-*** =sample_code
-```{r}
-# movie_selection is available in your workspace
+system.time(for (i in 1:1000) DT[i, V1 := i])
+speed = 0.279 seconds 
 
-# Check out the structure of movie_selection
+Looping through `data.table` is about 57x faster than `data.frame` ! This will get even faster when we introduce the `set` function with `data.table` 
+
+**Efficiency Test**
+
+To show the efficiency of `data.table` here is the same code needed in both `data.frame` and `data.table` to produce identical output.
+
+setkey(DT,"V2")
+data.table = DT [ c( " A " , " C " ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
+
+data.frame = DF %>% 
+        group_by( V2 ) %>% 
+        filter( V2 == " A " | V2 == " C ") %>% 
+        summarise( V4 = sum( V4 ) )
+
+In `data.frame` the actions for data manipulation need to be explicitely called, `data.table` on the other hand is build for implicit manipulation within the `data.table` itself.
 
 
-# Select movies that have a rating of 5 or higher: good_movies
+If these two examples were not enough for you then hopefully durring the duration of this course you begin to see the value of using data.table for big data manipulation and analytics.
 
+In the next lecture we will begin by looking at `data.table` syntax. 
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-
-```
-
-*** =solution
-```{r}
-# movie_selection is available in your workspace
-
-# Check out the structure of movie_selection
-str(movie_selection)
-
-# Select movies that have a rating of 5 or higher: good_movies
-good_movies <- movie_selection[movie_selection$Rating >= 5, ]
-
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
-```
-
-*** =sct
-```{r}
-# The sct section defines the Submission Correctness Tests (SCTs) used to
-# evaluate the student's response. All functions used here are defined in the 
-# testwhat R package. Documentation can also be found at github.com/datacamp/testwhat/wiki
-
-# Test whether the function str is called with the correct argument, object
-# If it is not called, print something informative
-# If it is called, but called incorrectly, print something else
-test_function("str", args = "object",
-              not_called_msg = "You didn't call `str()`!",
-              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
-
-# Test the object, good_movies
-# Notice that we didn't define any feedback here, this will cause automatically 
-# generated feedback to be given to the student in case of an incorrect submission
-test_object("good_movies")
-
-# Test whether the student correctly used plot()
-# Again, we use the automatically generated feedback here
-test_function("plot", args = "x")
-test_function("plot", args = "y")
-test_function("plot", args = "col")
-
-# Alternativeley, you can use test_function() like this
-# test_function("plot", args = c("x", "y", "col"))
-
-# It's always smart to include the following line of code at the end of your SCTs
-# It will check whether executing the student's code resulted in an error, 
-# and if so, will cause the exercise to fail
-test_error()
-
-# Final message the student will see upon completing the exercise
-success_msg("Good work!")
-```
