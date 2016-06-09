@@ -19,14 +19,14 @@ But instead of talking my word for it, let me prove it to you:
 To show the speed of `data.table` we will use an example that compares `data.table` and `data.frame` when setting values in a loop:
 
 m = matrix(1, nrow = 2e6L, ncol = 100L)
-DF = as.data.frame(m)
-DT = as.data.table(m)    
+<br> DF = as.data.frame(m) </br>
+<br> DT = as.data.table(m) </br>   
 
 system.time(for (i in 1:1000) DF[i, 1] = i)
-speed = 15.856 seconds
+<br> speed = 15.856 seconds </br>
 
 system.time(for (i in 1:1000) DT[i, V1 := i])
-speed = 0.279 seconds 
+<br>speed = 0.279 seconds </br>
 
 Looping through `data.table` is about 57x faster than `data.frame` ! This will get even faster when we introduce the `set` function with `data.table` 
 
@@ -35,12 +35,12 @@ Looping through `data.table` is about 57x faster than `data.frame` ! This will g
 To show the efficiency of `data.table` here is the same code needed in both `data.frame` and `data.table` to produce identical output.
 
 setkey(DT,"V2")
-data.table = DT [ c( " A " , " C " ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
+<br> data.table = DT [ c( " A " , " C " ) , .( V4 = sum( V4 ) ) , by = .EACHI ]</br>
 
 data.frame = DF %>% 
-        group_by( V2 ) %>% 
-        filter( V2 == " A " | V2 == " C ") %>% 
-        summarise( V4 = sum( V4 ) )
+       <br> group_by( V2 ) %>% </br>
+        <br> filter( V2 == " A " | V2 == " C ") %>% </br>
+        <br> summarise( V4 = sum( V4 ) ) </br>
 
 In `data.frame` the actions for data manipulation need to be explicitely called, `data.table` on the other hand is build for implicit manipulation within the `data.table` itself.
 
@@ -49,3 +49,27 @@ If these two examples were not enough for you then hopefully durring the duratio
 
 In the next lecture we will begin by looking at `data.table` syntax. 
 
+*** =instructions
+
+*** =hint
+
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
+
+```
+
+*** =solution
+```{r}
+
+```
+
+*** =sct
+```{r}
+```
