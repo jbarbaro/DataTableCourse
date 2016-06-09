@@ -4,8 +4,8 @@ description : This chapter provides a basic overview of `data.table` by introduc
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
-## Benefits of data.table
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+## Getting started with data.table
 
 > "data.table inherits from data.frame. It offers fast subset, fast grouping, fast update, fast ordered joins and list columns in a short and flexible syntax, for faster development."
     <br>- Matt Dowle, data.table package maintainer   </br>                                                                                                          
@@ -56,7 +56,7 @@ In `data.frame` the actions for data manipulation need to be explicitely called,
 
 If these two examples were not enough for you then hopefully durring the duration of this course you begin to see the value of using data.table for big data manipulation and analytics.
 
-You will begin this course by working through the powerpoint presentation found in the `slides` tab to the right of the screen. 
+You will begin this course by working through the powerpoint presentation found in the `slides` tab to the right of the screen. This presentation will get you accustomed to the `data.table` syntax and show you some examples of simple data manipulation. 
 
 *** =instructions
 - Read through powerpoint presentation
