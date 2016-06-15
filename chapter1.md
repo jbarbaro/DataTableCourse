@@ -117,7 +117,7 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:12df5de86a
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris dataset 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the dataset we will be using for a majority of the excersises.
@@ -154,7 +154,7 @@ test_object("iris")
 iris
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:d31d315dfe
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris dataset, lets start applying some of this knowledge.
@@ -171,8 +171,11 @@ Let's begin with some basic excersices below
 
 *** =hint
 - When filtering a column for a value make sure you are using "==" eg. [Species == "versicolor"] 
+*** =hint
 - You can filter rows the same as you would in data.frame 
+*** =hint
 - Use the "c" function to concatenate the rows you want to filter 
+*** =hint
 - You can filter with multiple conditions using "&" for and conditions and "|" for or condition 
 
 *** =pre_exercise_code
