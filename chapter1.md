@@ -24,7 +24,8 @@ m = matrix(1, nrow = 2e6L, ncol = 100L)
 
 *With data frame*
 
-`system.time(for (i in 1:1000) DF[i, 1] = i) <br> speed = 15.856 seconds </br>`
+system.time(for (i in 1:1000) DF[i, 1] = i) 
+<br> speed = 15.856 seconds </br>
 
 *With data table*
 
