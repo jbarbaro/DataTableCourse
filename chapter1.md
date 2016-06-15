@@ -2,7 +2,7 @@
 title       : Introduction To data.table
 description : This chapter provides a basic overview of `data.table` by introducing the user to the methodology and syntax used for data analytics
 attachments :
-  slides_link : https://github.com/jbarbaro/DataTableCourse/blob/master/NLA_data.table_BW.pptx
+  slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Getting started with data.table
@@ -14,9 +14,6 @@ The `data.table` package is a powerful tool for storing big data in R. You can t
 
 But instead of taking my word for it, let me prove it to you:
 
-iris <-as.data.table(iris)
-
-iris[,.(Sepal.Length = sum(Sepal.Length)), by = Species]
 **Speed Test**
 
 To show the speed of `data.table` we will use an example that compares `data.table` and `data.frame` when setting values in a loop:
@@ -27,8 +24,7 @@ m = matrix(1, nrow = 2e6L, ncol = 100L)
 
 *With data frame*
 
-system.time(for (i in 1:1000) DF[i, 1] = i)
-<br> speed = 15.856 seconds </br>
+`system.time(for (i in 1:1000) DF[i, 1] = i) <br> speed = 15.856 seconds </br>`
 
 *With data table*
 
