@@ -66,11 +66,44 @@ You will begin this course by working through the powerpoint presentation found 
 
 *** =pre_exercise_code
 ```{r}
+library(data.table)
+library(dplyr)
 
+DF <- data.frame(V1 = c("a","b","b","c","a") , V2 = c("A","B","C","A","C") , V3 = 1:5 , V4 = 6:10)
+DT <- data.table(V1 = c("a","b","b","c","a") , V2 = c("A","B","C","A","C") , V3 = 1:5 , V4 = 6:10)
 ```
 
 *** =sample_code
 ```{r}
+### Speed Test
+
+m = matrix(1, nrow = 2e6L, ncol = 100L)
+<br> DF = as.data.frame(m) </br>
+<br> DT = as.data.table(m) </br>   
+
+# With data frame
+
+system.time(for (i in 1:1000) DF[i, 1] = i) 
+## speed = 15.856 seconds 
+
+# With data table
+
+system.time(for (i in 1:1000) DT[i, V1 := i])
+## speed = 0.279 seconds 
+
+### Efficiency Test
+
+# With data frame
+
+data.frame = DF %>% 
+       group_by( V2 ) %>% 
+       filter( V2 =="A" | V2 =="C") %>% 
+       summarise( V4 = sum( V4 ) ) 
+
+With data table
+
+setkey(DT,"V2")
+data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 
 
 ```
@@ -84,7 +117,7 @@ You will begin this course by working through the powerpoint presentation found 
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:7130cea137
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris dataset 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the dataset we will be using for a majority of the excersises.
@@ -120,10 +153,10 @@ test_object("iris")
 ```
 
 iris
---- type:NormalExercise lang:r xp:100 skills:1 key:e1d205ea9a
-## Getting started with the i arrgument in data.table
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+## The i arrgument in data.table
 
-Now that you have had a basic introduction to the data.table syntax, lets start applying some of this knowledge.
+Now that you have had a basic introduction to the data.table syntax and the iris dataset, lets start applying some of this knowledge.
 
 The i argument allows you to control filtering of the data.table whether it is by value(s) in a column or a specific row(s).
 
