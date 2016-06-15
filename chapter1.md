@@ -83,3 +83,56 @@ You will begin this course by working through the powerpoint presentation found 
 *** =sct
 ```{r}
 ```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+## Introduction the the Iris dataset 
+
+Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the dataset we will be using for a majority of the excersises.
+
+The iris dataset is preloaded in R, and consists of 5 columns and 150 rows. The dataset compares three different Species of flowers: Setosa, Versicolor and Virginica across four different variables: Sepal.Length, Sepal.Width, Petal.Length, Petal.Width.
+
+It is a simple dataset but useful for practice when first starting out in data.tables.
+
+*** =instructions
+- The iris dataset has been preloaded into the R consol. Before moving on view the dataset in the consol.
+*** =hint
+- type iris into the consol
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+# View iris dataset
+
+```
+
+*** =solution
+```{r}
+iris
+```
+
+*** =sct
+```{r}
+test_object("iris")
+```
+
+iris
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+## Getting started with the i arrgument in data.table
+
+Now that you have had a basic introduction to the data.table syntax, lets start applying some of this knowledge.
+
+The i argument allows you to control filtering of the data.table whether it is by value(s) in a column or a specific row(s).
+
+
+
+
+
+
+
+
+
+
