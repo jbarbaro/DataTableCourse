@@ -78,8 +78,8 @@ DT <- data.table(V1 = c("a","b","b","c","a") , V2 = c("A","B","C","A","C") , V3 
 ### Speed Test
 
 m = matrix(1, nrow = 2e6L, ncol = 100L)
-<br> DF = as.data.frame(m) </br>
-<br> DT = as.data.table(m) </br>   
+DF = as.data.frame(m) 
+DT = as.data.table(m)
 
 # With data frame
 
@@ -117,7 +117,7 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:7c17f01d79
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris dataset 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the dataset we will be using for a majority of the excersises.
@@ -151,15 +151,77 @@ iris
 ```{r}
 test_object("iris")
 ```
-
 iris
---- type:NormalExercise lang:r xp:100 skills:1 key:ba66407a17
+
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris dataset, lets start applying some of this knowledge.
 
 The i argument allows you to control filtering of the data.table whether it is by value(s) in a column or a specific row(s).
 
+Let's begin with some basic excersices below
+
+*** =instructions
+- Using the iris dataset filter the Species column for the flower type setosa, assign it to variable filter_one
+- Filter the first five rows in the iris dataset, assign it to variable filter_two
+- Filter the first, thrid and fifth row in the iris dataset, assign it to variable filter_three
+- Filter all the setosa species that have a petal length greater than 1.5, assign it to variable filter_four
+
+*** =hint
+- When filtering a column for a value make sure you are using "==" eg. [Species == "versicolor"] 
+- You can filter rows the same as you would in data.frame 
+- Use the "c" function to concatenate the rows you want to filter 
+- You can filter with multiple conditions using "&" for and conditions and "|" for or condition 
+
+*** =pre_exercise_code
+```{r}
+iris = as.data.table(iris)
+```
+
+*** =sample_code
+```{r}
+# Filter the Species column for setosa
+
+# Filter the first five rows in the dataset
+
+# Filter the first, third and fifth row in the dataset
+
+# Filter the setosa species that have a petal length greater than 1.5
+
+```
+
+*** =solution
+```{r}
+
+# Filter the Species column for setosa
+
+filter_one <- iris[Species == "setosa"]
+
+# Filter the first five rows in the dataset
+
+filter_two <- iris[1:5]
+
+# Filter the first, third and fifth row in the dataset
+
+filter_three <- iris[c(1,2,5)]
+
+
+# Filter the setosa species that have a petal length greater than 1.5
+
+filter_four <- iris[Species == "setosa" & Petal.Length >1.5]
+
+
+```
+
+*** =sct
+```{r}
+test_object("filter_one")
+test_object("filter_two")
+test_object("filter_three")
+test_object("filter_four")
+```
 
 
 
