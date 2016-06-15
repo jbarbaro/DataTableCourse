@@ -84,7 +84,7 @@ You will begin this course by working through the powerpoint presentation found 
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:1beea71ace
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris dataset 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the dataset we will be using for a majority of the excersises.
@@ -100,7 +100,7 @@ It is a simple dataset but useful for practice when first starting out in data.t
 
 *** =pre_exercise_code
 ```{r}
-
+iris <- iris
 ```
 
 *** =sample_code
@@ -120,7 +120,7 @@ test_object("iris")
 ```
 
 iris
---- type:NormalExercise lang:r xp:100 skills:1 key:fb61f7b52f
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Getting started with the i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax, lets start applying some of this knowledge.
