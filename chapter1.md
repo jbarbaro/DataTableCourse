@@ -117,7 +117,7 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:1e32927fe1
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris dataset 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the dataset we will be using for a majority of the excersises.
@@ -154,7 +154,7 @@ test_object("iris")
 iris
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:bdf1b08b6a
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris dataset, lets start applying some of this knowledge.
@@ -224,7 +224,7 @@ test_object("filter_four")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:39290f7cce
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The j arrgument in data.table
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
@@ -284,24 +284,19 @@ test_object("Avg_Sepal_Width")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:2070a21980
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The by arrgument in data.table
 
-Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
+The by arrgument in data.table is incredibly useful because it allows you to summarize data by various variables.
 
-The j argument allows you add new columns, update existing columns, summarize data and call specific columns.
-
-Let's begin with some basic excersices below
+Let's take a look at how we use by in data.table
 
 *** =instructions
-- Create a new variable called j_one with data only from the column Sepal.Length
-- Add a new column to the iris data.table named Petal.Width_2 which is Petal.Width multiplied by 2 and assign it to a new variable iris2
-- Find the average Sepal width in the data.table and assign the value to Avg_Sepal_Width
+- Find the average Petal Length by Species and assign it to a variable named avg_petal_length
+- Find the average Petal Length by Species and Petal Width and assign it to a variable named avg_petal_length2
 
 *** =hint
-- Use .() form to call individual columns out of a data.table
-- To add or manipulate columns use :=
-- You can use functions by calling them within the .() form
+- When calling muliple columns into the by argument be sure it is in the form by = .(columns)
 
 *** =pre_exercise_code
 ```{r}
@@ -311,41 +306,34 @@ iris = as.data.table(iris)
 
 *** =sample_code
 ```{r}
-# Create a new variable j_one with data from Sepal.Length
-
-# Add a new column to iris named Petal.Width_2 which is Petal.Width multiplied by 2
-
-# Find the average Sepal width and assign the value to Avg_Sepal_Width
+# Find the average Petal Length by Species and assign it to a variable named avg_petal_length
+# Find the average Petal Length by Species and Petal Width and assign it to a variable named avg_petal_length2
 
 ```
 
 *** =solution
 ```{r}
 
-# Create a new variable j_one with data from Sepal.Length
+# Find the average Petal Length by Species and assign it to a variable named avg_petal_length
 
-j_one <- iris[,.(Sepal.Length)]
+avg_petal_length <- iris[,mean(Petal.Length), by = Species]
 
-# Add a new column to iris named Petal.Width_2 which is Petal.Width multiplied by 2 and assign it to a new variable iris2
+# Find the average Petal Length by Species and Petal Width and assign it to a variable named avg_petal_length2
 
-iris2 <- iris[,Petal.Width_2 := Petal.Width *2]
-
-# Find the average Sepal width and assign the value to Avg_Sepal_Width
-
-Avg_Sepal_Width <- iris[,.(mean(Sepal.Width))]
+avg_petal_length2 <- iris[,mean(Petal.Length), by = .(Species,Petal.Width)]
 
 ```
 
 *** =sct
 ```{r}
-test_object("j_one")
-test_object("iris2")
-test_object("Avg_Sepal_Width")
+test_object("avg_petal_length")
+test_object("avg_petal_length2")
+
 
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:33639bd10f
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Creating data.tables
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
