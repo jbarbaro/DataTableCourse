@@ -117,7 +117,7 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:67a80d57bd
 ## Introduction the the Iris dataset 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the dataset we will be using for a majority of the excersises.
@@ -154,7 +154,7 @@ test_object("iris")
 iris
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:6740a6ee34
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris dataset, lets start applying some of this knowledge.
@@ -224,7 +224,7 @@ test_object("filter_four")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:00878dd157
 ## The j arrgument in data.table
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
@@ -284,7 +284,7 @@ test_object("Avg_Sepal_Width")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:573985d336
 ## The by arrgument in data.table
 
 The by arrgument in data.table is incredibly useful because it allows you to summarize data by various variables.
@@ -333,7 +333,7 @@ test_object("avg_petal_length2")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:c511ee4ff4
 ## Creating data.tables
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
