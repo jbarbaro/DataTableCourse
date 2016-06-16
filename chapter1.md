@@ -1,5 +1,5 @@
 ---
-title       : Introduction To data.table
+title       : Introduction to data.table
 description : This chapter provides a basic overview of `data.table` by introducing the user to the methodology and syntax used for data analytics
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
@@ -117,7 +117,7 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:9663c340dd
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris dataset 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the dataset we will be using for a majority of the excersises.
@@ -154,7 +154,7 @@ test_object("iris")
 iris
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:9fbff0c6f4
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris dataset, lets start applying some of this knowledge.
@@ -224,7 +224,7 @@ test_object("filter_four")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ddad83c123
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The j arrgument in data.table
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
@@ -284,8 +284,8 @@ test_object("Avg_Sepal_Width")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:48abb711c8
-## The By arrgument in data.table
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+## The by arrgument in data.table
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
 
@@ -345,7 +345,65 @@ test_object("Avg_Sepal_Width")
 ```
 
 
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+## Creating data.tables
 
+Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
+
+The j argument allows you add new columns, update existing columns, summarize data and call specific columns.
+
+Let's begin with some basic excersices below
+
+*** =instructions
+- Create a new variable called j_one with data only from the column Sepal.Length
+- Add a new column to the iris data.table named Petal.Width_2 which is Petal.Width multiplied by 2 and assign it to a new variable iris2
+- Find the average Sepal width in the data.table and assign the value to Avg_Sepal_Width
+
+*** =hint
+- Use .() form to call individual columns out of a data.table
+- To add or manipulate columns use :=
+- You can use functions by calling them within the .() form
+
+*** =pre_exercise_code
+```{r}
+library(data.table)
+iris = as.data.table(iris)
+```
+
+*** =sample_code
+```{r}
+# Create a new variable j_one with data from Sepal.Length
+
+# Add a new column to iris named Petal.Width_2 which is Petal.Width multiplied by 2
+
+# Find the average Sepal width and assign the value to Avg_Sepal_Width
+
+```
+
+*** =solution
+```{r}
+
+# Create a new variable j_one with data from Sepal.Length
+
+j_one <- iris[,.(Sepal.Length)]
+
+# Add a new column to iris named Petal.Width_2 which is Petal.Width multiplied by 2 and assign it to a new variable iris2
+
+iris2 <- iris[,Petal.Width_2 := Petal.Width *2]
+
+# Find the average Sepal width and assign the value to Avg_Sepal_Width
+
+Avg_Sepal_Width <- iris[,.(mean(Sepal.Width))]
+
+```
+
+*** =sct
+```{r}
+test_object("j_one")
+test_object("iris2")
+test_object("Avg_Sepal_Width")
+
+```
 
 
 
