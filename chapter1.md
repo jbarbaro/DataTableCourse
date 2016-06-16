@@ -117,7 +117,7 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:bf86edc590
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris dataset 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the dataset we will be using for a majority of the excersises.
@@ -154,7 +154,7 @@ test_object("iris")
 iris
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:95900073bd
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris dataset, lets start applying some of this knowledge.
@@ -171,11 +171,8 @@ Let's begin with some basic excersices below
 
 *** =hint
 - When filtering a column for a value make sure you are using "==" eg. [Species == "versicolor"] 
-*** =hint
 - You can filter rows the same as you would in data.frame 
-*** =hint
 - Use the "c" function to concatenate the rows you want to filter 
-*** =hint
 - You can filter with multiple conditions using "&" for and conditions and "|" for or condition 
 
 *** =pre_exercise_code
@@ -211,7 +208,6 @@ filter_two <- iris[1:5]
 
 filter_three <- iris[c(1,2,5)]
 
-
 # Filter the setosa species that have a petal length greater than 1.5
 
 filter_four <- iris[Species == "setosa" & Petal.Length >1.5]
@@ -228,6 +224,125 @@ test_object("filter_four")
 ```
 
 
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+## The j arrgument in data.table
+
+Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
+
+The j argument allows you add new columns, update existing columns, summarize data and call specific columns.
+
+Let's begin with some basic excersices below
+
+*** =instructions
+- Create a new variable called j_one with data only from the column Sepal.Length
+- Add a new column to the iris data.table named Petal.Width_2 which is Petal.Width multiplied by 2 and assign it to a new variable iris2
+- Find the average Sepal width in the data.table and assign the value to Avg_Sepal_Width
+
+*** =hint
+- Use .() form to call individual columns out of a data.table
+- To add or manipulate columns use :=
+- You can use functions by calling them within the .() form
+
+*** =pre_exercise_code
+```{r}
+library(data.table)
+iris = as.data.table(iris)
+```
+
+*** =sample_code
+```{r}
+# Create a new variable j_one with data from Sepal.Length
+
+# Add a new column to iris named Petal.Width_2 which is Petal.Width multiplied by 2
+
+# Find the average Sepal width and assign the value to Avg_Sepal_Width
+
+```
+
+*** =solution
+```{r}
+
+# Create a new variable j_one with data from Sepal.Length
+
+j_one <- iris[,.(Sepal.Length)]
+
+# Add a new column to iris named Petal.Width_2 which is Petal.Width multiplied by 2 and assign it to a new variable iris2
+
+iris2 <- iris[,Petal.Width_2 := Petal.Width *2]
+
+# Find the average Sepal width and assign the value to Avg_Sepal_Width
+
+Avg_Sepal_Width <- iris[,.(mean(Sepal.Width))]
+
+```
+
+*** =sct
+```{r}
+test_object("j_one")
+test_object("iris2")
+test_object("Avg_Sepal_Width")
+
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+## The By arrgument in data.table
+
+Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
+
+The j argument allows you add new columns, update existing columns, summarize data and call specific columns.
+
+Let's begin with some basic excersices below
+
+*** =instructions
+- Create a new variable called j_one with data only from the column Sepal.Length
+- Add a new column to the iris data.table named Petal.Width_2 which is Petal.Width multiplied by 2 and assign it to a new variable iris2
+- Find the average Sepal width in the data.table and assign the value to Avg_Sepal_Width
+
+*** =hint
+- Use .() form to call individual columns out of a data.table
+- To add or manipulate columns use :=
+- You can use functions by calling them within the .() form
+
+*** =pre_exercise_code
+```{r}
+library(data.table)
+iris = as.data.table(iris)
+```
+
+*** =sample_code
+```{r}
+# Create a new variable j_one with data from Sepal.Length
+
+# Add a new column to iris named Petal.Width_2 which is Petal.Width multiplied by 2
+
+# Find the average Sepal width and assign the value to Avg_Sepal_Width
+
+```
+
+*** =solution
+```{r}
+
+# Create a new variable j_one with data from Sepal.Length
+
+j_one <- iris[,.(Sepal.Length)]
+
+# Add a new column to iris named Petal.Width_2 which is Petal.Width multiplied by 2 and assign it to a new variable iris2
+
+iris2 <- iris[,Petal.Width_2 := Petal.Width *2]
+
+# Find the average Sepal width and assign the value to Avg_Sepal_Width
+
+Avg_Sepal_Width <- iris[,.(mean(Sepal.Width))]
+
+```
+
+*** =sct
+```{r}
+test_object("j_one")
+test_object("iris2")
+test_object("Avg_Sepal_Width")
+
+```
 
 
 
