@@ -52,7 +52,7 @@ test_object("iris_one")
 test_object("iris_two")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:d01409aaa8
 ## Using .N 
 
 The `.N` attribute is a specific call that can be used only within `data.table` that corresponds to the number of rows within the `data.table`. This allows you to specify the number of rows without the use of the `nrow()` function.
@@ -107,7 +107,7 @@ test_object("filter_one")
 test_object("filter_two")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:44500091f7
 ## Introduction to Chaining 
 
 
@@ -136,7 +136,7 @@ test_object("filter_two")
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:64b32dfe11
 ## Introduction to .SDcols
 
 
