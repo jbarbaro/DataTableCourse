@@ -117,17 +117,17 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:233a425f88
-## Introduction the the Iris dataset 
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+## Introduction the the Iris data set 
 
-Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the dataset we will be using for a majority of the exercises.
+Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the data set we will be using for a majority of the exercises.
 
-The iris dataset is preloaded in R, and consists of 5 columns and 150 rows. The dataset compares three different Species of flowers: Setosa, Versicolor and Virginica across four different variables: Sepal.Length, Sepal.Width, Petal.Length, Petal.Width.
+The iris data set is preloaded in R, and consists of 5 columns and 150 rows. The data set compares three different Species of flowers: Setosa, Versicolor and Virginica across four different variables: Sepal.Length, Sepal.Width, Petal.Length, Petal.Width.
 
-It is a simple dataset but useful for practice when first starting out in data.tables.
+It is a simple data set but useful for practice when first starting out in data.tables.
 
 *** =instructions
-- The iris dataset has been preloaded into the R console. Before moving on view the dataset in the console.
+- The iris data set has been preloaded into the R console. Before moving on view the data set in the console.
 *** =hint
 - type iris into the console
 
@@ -138,7 +138,7 @@ iris <- iris
 
 *** =sample_code
 ```{r}
-# View iris dataset
+# View iris data set
 
 ```
 
@@ -153,20 +153,50 @@ test_object("iris")
 ```
 iris
 
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+## Quiz : What is data.table
 
---- type:NormalExercise lang:r xp:100 skills:1 key:bab7542639
+Which of the following statements best represents `data.table` as a data storage tool
+
+*** =instructions
+- A data storage tool which works exceptionaly well with large data sets
+- A data storage tool that allows for implicite data manipulation
+- A data store tool that allows for faster and more efficient coding
+- All of the above
+
+*** =hint
+- `data.table` has many positive qualities
+
+
+*** =sct
+```{r}
+# The sct section defines the Submission Correctness Tests (SCTs) used to
+# evaluate the student's response. All functions used here are defined in the 
+# testwhat R package
+
+msg_bad <- "That is not correct!"
+msg_success <- "Exactly! data.table is all this and more!"
+
+# Use test_mc() to grade multiple choice exercises. 
+# Pass the correct option (Action, option 2 in the instructions) to correct.
+# Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
+test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
+```
+
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The i arrgument in data.table
 
-Now that you have had a basic introduction to the data.table syntax and the iris dataset, lets start applying some of this knowledge.
+Now that you have had a basic introduction to the data.table syntax and the iris data set, lets start applying some of this knowledge.
 
 The i argument allows you to control filtering of the data.table whether it is by value(s) in a column or a specific row(s).
 
 Let's begin with some basic exercise below
 
 *** =instructions
-- Using the iris dataset filter the Species column for the flower type setosa, assign it to variable filter_one
-- Filter the first five rows in the iris dataset, assign it to variable filter_two
-- Filter the first, third and fifth row in the iris dataset, assign it to variable filter_three
+- Using the iris data set filter the Species column for the flower type setosa, assign it to variable filter_one
+- Filter the first five rows in the iris data set, assign it to variable filter_two
+- Filter the first, third and fifth row in the iris data set, assign it to variable filter_three
 - Filter all the setosa species that have a petal length greater than 1.5, assign it to variable filter_four
 
 *** =hint
@@ -185,9 +215,9 @@ iris = as.data.table(iris)
 ```{r}
 # Filter the Species column for setosa
 
-# Filter the first five rows in the dataset
+# Filter the first five rows in the data set
 
-# Filter the first, third and fifth row in the dataset
+# Filter the first, third and fifth row in the data set
 
 # Filter the setosa species that have a petal length greater than 1.5
 
@@ -200,11 +230,11 @@ iris = as.data.table(iris)
 
 filter_one <- iris[Species == "setosa"]
 
-# Filter the first five rows in the dataset
+# Filter the first five rows in the data set
 
 filter_two <- iris[1:5]
 
-# Filter the first, third and fifth row in the dataset
+# Filter the first, third and fifth row in the data set
 
 filter_three <- iris[c(1,2,5)]
 
@@ -230,8 +260,8 @@ Have a look at the code below. Chose the option that represents the output from 
 
 `iris[ c( 3 , 1 , .N ) ]`
 *** =instructions
-- Return the third, first and last row from the `iris` dataset in that order
-- Return the first, third and last row from the `iris` dataset in that order
+- Return the third, first and last row from the `iris` data set in that order
+- Return the first, third and last row from the `iris` data set in that order
 - Return an error as `.N` is not a valid command
 - Return an error as there is a missing comma to indicate you are operating the `i` argument
 
@@ -254,7 +284,38 @@ msg_success <- "Exactly! The third, first and last column would be selected all 
 test_mc(correct = 1, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:8ef05468b5
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+## Quiz : Selecting Rows
+
+Have a look at the code below. Chose the option that represents the output from this call.
+
+`iris[ c( 3 , 1 , .N ) ]`
+*** =instructions
+- Return the third, first and last row from the `iris` data set in that order
+- Return the first, third and last row from the `iris` data set in that order
+- Return an error as `.N` is not a valid command
+- Return an error as there is a missing comma to indicate you are operating the `i` argument
+
+*** =hint
+- Order does matter when selecting rows in `data.table`
+
+
+*** =sct
+```{r}
+# The sct section defines the Submission Correctness Tests (SCTs) used to
+# evaluate the student's response. All functions used here are defined in the 
+# testwhat R package
+
+msg_bad <- "That is not correct!"
+msg_success <- "Exactly! The third, first and last column would be selected all in that order."
+
+# Use test_mc() to grade multiple choice exercises. 
+# Pass the correct option (Action, option 2 in the instructions) to correct.
+# Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
+test_mc(correct = 1, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The j arrgument in data.table
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
@@ -314,7 +375,7 @@ test_object("Avg_Sepal_Width")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:0b1a16eda0
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The by arrgument in data.table
 
 The by argument in data.table is incredibly useful because it allows you to summarize data by various variables.
@@ -363,7 +424,7 @@ test_object("avg_petal_length2")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:653a628e45
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Creating data.tables
 
 Creating data.tables is almost identical to creating data.frames in R. 
@@ -385,7 +446,7 @@ B = c("A","B","C","D","E")
 
 my_DT = data.table(A,B)
 
-Alternatively you might have a dataset that is being stored as a data.frame that you want to convert to a data.table. You can do this using the `as.data.table` function.
+Alternatively you might have a data set that is being stored as a data.frame that you want to convert to a data.table. You can do this using the `as.data.table` function.
 
 *** =instructions
 - Create a new data.table named `my_DT` which has three columns. The first column named `Alpha` with data A:J, the second column named `Numeric` with data 1:10 and a third column named `small_alpha` with data a:j
