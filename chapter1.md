@@ -43,7 +43,7 @@ To show the efficiency of `data.table` here is the same code needed in both `dat
 data.frame = DF %>% 
        <br> group_by( V2 ) %>% </br>
         <br> filter( V2 == " A " | V2 == " C ") %>% </br>
-        <br> summarise( V4 = sum( V4 ) ) </br>
+        <br> summarize( V4 = sum( V4 ) ) </br>
 
 *With data table*
 
@@ -51,16 +51,16 @@ setkey(DT,"V2")
 <br> data.table = DT [ c( " A " , " C " ) , .( V4 = sum( V4 ) ) , by = .EACHI ]</br>
 
 
-In `data.frame` the actions for data manipulation need to be explicitely called, `data.table` on the other hand is built for implicit manipulation within the `data.table` itself.
+In `data.frame` the actions for data manipulation need to be explicitly called, `data.table` on the other hand is built for implicit manipulation within the `data.table` itself.
 
 
-If these two examples were not enough for you then hopefully durring the duration of this course you begin to see the value of using data.table for big data manipulation and analytics.
+If these two examples were not enough for you then hopefully during the duration of this course you begin to see the value of using data.table for big data manipulation and analytics.
 
-You will begin this course by working through the powerpoint presentation found in the `slides` tab to the right of the screen. This presentation will get you accustomed to the `data.table` syntax and show you some examples of simple data manipulation. 
+You will begin this course by working through the power point presentation found in the `slides` tab to the right of the screen. This presentation will get you accustomed to the `data.table` syntax and show you some examples of simple data manipulation. 
 
 *** =instructions
-- Read through powerpoint presentation
-- Click Submitt Answer to continue to next excersise 
+- Read through power point presentation
+- Click Submit Answer to continue to next exercise 
 *** =hint
 
 
@@ -117,19 +117,19 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:55e9881455
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris dataset 
 
-Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the dataset we will be using for a majority of the excersises.
+Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the dataset we will be using for a majority of the exercises.
 
 The iris dataset is preloaded in R, and consists of 5 columns and 150 rows. The dataset compares three different Species of flowers: Setosa, Versicolor and Virginica across four different variables: Sepal.Length, Sepal.Width, Petal.Length, Petal.Width.
 
 It is a simple dataset but useful for practice when first starting out in data.tables.
 
 *** =instructions
-- The iris dataset has been preloaded into the R consol. Before moving on view the dataset in the consol.
+- The iris dataset has been preloaded into the R console. Before moving on view the dataset in the console.
 *** =hint
-- type iris into the consol
+- type iris into the console
 
 *** =pre_exercise_code
 ```{r}
@@ -154,19 +154,19 @@ test_object("iris")
 iris
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:04d54ff626
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris dataset, lets start applying some of this knowledge.
 
 The i argument allows you to control filtering of the data.table whether it is by value(s) in a column or a specific row(s).
 
-Let's begin with some basic excersices below
+Let's begin with some basic exercise below
 
 *** =instructions
 - Using the iris dataset filter the Species column for the flower type setosa, assign it to variable filter_one
 - Filter the first five rows in the iris dataset, assign it to variable filter_two
-- Filter the first, thrid and fifth row in the iris dataset, assign it to variable filter_three
+- Filter the first, third and fifth row in the iris dataset, assign it to variable filter_three
 - Filter all the setosa species that have a petal length greater than 1.5, assign it to variable filter_four
 
 *** =hint
@@ -223,20 +223,63 @@ test_object("filter_three")
 test_object("filter_four")
 ```
 
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+## A really bad movie
 
---- type:NormalExercise lang:r xp:100 skills:1 key:8c1182db65
+Have a look at the plot that showed up in the viewer to the right. Which type of movie has the worst rating assigned to it?
+
+*** =instructions
+- Adventure
+- Action
+- Animation
+- Comedy
+
+*** =hint
+Have a look at the plot. Which color does the point with the lowest rating have?
+
+*** =pre_exercise_code
+```{r}
+# The pre exercise code runs code to initialize the user's workspace. You can use it for several things:
+
+# 1. Preload a dataset. The code below will read the csv that is stored at the URL's location.
+# The movies variable will be available in the user's console.
+movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
+
+# 2. Pre-load packages, so that users don't have to do this manually.
+library(ggplot2)
+
+# 3. Create a plot in the viewer, that students can check out while reading the exercise
+ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
+```
+
+*** =sct
+```{r}
+# The sct section defines the Submission Correctness Tests (SCTs) used to
+# evaluate the student's response. All functions used here are defined in the 
+# testwhat R package
+
+msg_bad <- "That is not correct!"
+msg_success <- "Exactly! There seems to be a very bad action movie in the dataset."
+
+# Use test_mc() to grade multiple choice exercises. 
+# Pass the correct option (Action, option 2 in the instructions) to correct.
+# Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
+test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The j arrgument in data.table
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
 
 The j argument allows you add new columns, update existing columns, summarize data and call specific columns.
 
-Let's begin with some basic excersices below
+Let's begin with some basic exercise below
 
 *** =instructions
 - Create a new variable called j_one with data only from the column Sepal.Length
 - Add a new column to the iris data.table named Petal.Width_2 which is Petal.Width multiplied by 2 and assign it to a new variable iris2
-- Find the average Sepal width in the data.table and assign the value to Avg_Sepal_Width
+- Find the average Sepal width in the data.table and assign the value to `Avg_Sepal_Width`
 
 *** =hint
 - Use .() form to call individual columns out of a data.table
@@ -284,19 +327,19 @@ test_object("Avg_Sepal_Width")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:1ec781060e
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The by arrgument in data.table
 
-The by arrgument in data.table is incredibly useful because it allows you to summarize data by various variables.
+The by argument in data.table is incredibly useful because it allows you to summarize data by various variables.
 
 Let's take a look at how we use by in data.table
 
 *** =instructions
-- Find the average Petal Length by Species and assign it to a variable named avg_petal_length
-- Find the average Petal Length by Species and Petal Width and assign it to a variable named avg_petal_length2
+- Find the average Petal Length by Species and assign it to a variable named `avg_petal_length`
+- Find the average Petal Length by Species and Petal Width and assign it to a variable named `avg_petal_length2`
 
 *** =hint
-- When calling muliple columns into the by argument be sure it is in the form by = .(columns)
+- When calling multiple columns into the by argument be sure it is in the form by = .(columns)
 
 *** =pre_exercise_code
 ```{r}
@@ -333,24 +376,35 @@ test_object("avg_petal_length2")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:bb51bddae0
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Creating data.tables
 
-Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
+Creating data.tables is almost identical to creating data.frames in R. 
 
-The j argument allows you add new columns, update existing columns, summarize data and call specific columns.
+If you are not familiar with the process, it can be broken down into two steps:
 
-Let's begin with some basic excersices below
+1. Create vectors of data you want to include in your data.table, make sure they are equal length as they will become the columns
+
+2. Call the vectors into the function `data.table()` and assign the output to a variable
+
+See the example below:
+
+1.
+
+A = 1:5
+B = c("A","B","C","D","E")
+
+2. 
+
+my_DT = data.table(A,B)
+
+Alternatively you might have a dataset that is being stored as a data.frame that you want to convert to a data.table. You can do this using the `as.data.table` function.
 
 *** =instructions
-- Create a new variable called j_one with data only from the column Sepal.Length
-- Add a new column to the iris data.table named Petal.Width_2 which is Petal.Width multiplied by 2 and assign it to a new variable iris2
-- Find the average Sepal width in the data.table and assign the value to Avg_Sepal_Width
+- Create a new data.table named `my_DT` which has three columns. The first column named `Alpha` with data A:J, the second column named `Numeric` with data 1:10 and a third column named `small_alpha` with data a:j
 
 *** =hint
-- Use .() form to call individual columns out of a data.table
-- To add or manipulate columns use :=
-- You can use functions by calling them within the .() form
+- Create the vectors first before calling them into data.table()
 
 *** =pre_exercise_code
 ```{r}
@@ -360,37 +414,43 @@ iris = as.data.table(iris)
 
 *** =sample_code
 ```{r}
-# Create a new variable j_one with data from Sepal.Length
+# Create a vector named Alpha
 
-# Add a new column to iris named Petal.Width_2 which is Petal.Width multiplied by 2
+# Create a vector named Numeric
 
-# Find the average Sepal width and assign the value to Avg_Sepal_Width
+# Create a vector named small_alpha
+
+# Create a data.table named my_DT
 
 ```
 
 *** =solution
 ```{r}
 
-# Create a new variable j_one with data from Sepal.Length
+# Create a vector named Alpha
 
-j_one <- iris[,.(Sepal.Length)]
+Alpha <- c("A","B","C","D","E","F","G","H","I","J")
 
-# Add a new column to iris named Petal.Width_2 which is Petal.Width multiplied by 2 and assign it to a new variable iris2
+# Create a vector named Numeric
 
-iris2 <- iris[,Petal.Width_2 := Petal.Width *2]
+Numeric <- 1:10
 
-# Find the average Sepal width and assign the value to Avg_Sepal_Width
+# Create a vector named small_alpha
 
-Avg_Sepal_Width <- iris[,.(mean(Sepal.Width))]
+small_alpha <- c("a","b","c","d","e","f","g","h","i","j")
+
+# Create a data.table named my_DT
+
+my_DT <- data.table(Alpha,Numeric,small_alpha)
 
 ```
 
 *** =sct
 ```{r}
-test_object("j_one")
-test_object("iris2")
-test_object("Avg_Sepal_Width")
-
+test_object("Alpha")
+test_object("Numeric")
+test_object("small_alpha")
+test_object("my_DT")
 ```
 
 
