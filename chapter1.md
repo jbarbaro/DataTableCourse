@@ -117,7 +117,7 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:08e6b6c1c5
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris dataset 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the dataset we will be using for a majority of the exercises.
@@ -154,7 +154,7 @@ test_object("iris")
 iris
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:81e28379d9
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris dataset, lets start applying some of this knowledge.
@@ -226,30 +226,24 @@ test_object("filter_four")
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## A really bad movie
 
-Have a look at the plot that showed up in the viewer to the right. Which type of movie has the worst rating assigned to it?
+Have a look at the code below. Chose the option that represents the output from this call.
+
+iris[c(3,1,.N)]
 
 *** =instructions
-- Adventure
-- Action
-- Animation
-- Comedy
+- Return the third, first and last row from the `iris` dataset in that order
+- Return the first, third and last row from the `iris` dataset in that order
+- Return an error as `.N` is not a valid command
+- Return an error as there is a missing comma to indicate you are operating the `i` argument
 
 *** =hint
-Have a look at the plot. Which color does the point with the lowest rating have?
+
 
 *** =pre_exercise_code
 ```{r}
-# The pre exercise code runs code to initialize the user's workspace. You can use it for several things:
 
-# 1. Preload a dataset. The code below will read the csv that is stored at the URL's location.
-# The movies variable will be available in the user's console.
-movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
+# 
 
-# 2. Pre-load packages, so that users don't have to do this manually.
-library(ggplot2)
-
-# 3. Create a plot in the viewer, that students can check out while reading the exercise
-ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
 ```
 
 *** =sct
@@ -267,7 +261,7 @@ msg_success <- "Exactly! There seems to be a very bad action movie in the datase
 test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:201b2498a0
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The j arrgument in data.table
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
@@ -327,7 +321,7 @@ test_object("Avg_Sepal_Width")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:a7045d87be
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The by arrgument in data.table
 
 The by argument in data.table is incredibly useful because it allows you to summarize data by various variables.
@@ -376,7 +370,7 @@ test_object("avg_petal_length2")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:3d245c57b9
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Creating data.tables
 
 Creating data.tables is almost identical to creating data.frames in R. 
