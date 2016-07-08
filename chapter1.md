@@ -117,7 +117,7 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:551725b617
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Creating data.tables
 
 Creating data.tables is almost identical to creating data.frames in R. 
@@ -224,7 +224,7 @@ msg_success <- "Exactly! data.table is all this and more!"
 test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_bad, msg_bad, msg_success)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:a583387d92
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris data set 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the data set we will be using for a majority of the exercises.
@@ -260,7 +260,7 @@ test_object("iris")
 ```
 iris
 
---- type:NormalExercise lang:r xp:100 skills:1 key:df43bd3879
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris data set, lets start applying some of this knowledge.
@@ -329,7 +329,7 @@ test_object("filter_three")
 test_object("filter_four")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:ab2a0329dd
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 2: Selecting Rows
 
 Have a look at the code below. Chose the option that represents the output from this call.
@@ -360,7 +360,7 @@ msg_success <- "Exactly! The third, first and last column would be selected all 
 test_mc(correct = 1, feedback_msgs = c(msg_success, msg_bad, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:17e0c36a3c
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 3: Filtering Rows
 
 Which statement best describes the call shown below
@@ -391,7 +391,7 @@ msg_success <- "Exactly! The call represents an or condtion filter."
 test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_bad, msg_success, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:e56d74a752
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The j arrgument in data.table
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
@@ -451,15 +451,15 @@ test_object("Avg_Sepal_Width")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4f09cb8073
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 4: Manipulating existing data
 
 Which of the following code shown below would be used to find the sum of the column `Petal.Width` in the `iris` data set
 
 *** =instructions
-- iris[.(sum(Petal.Width))]
-- iris[,.(sum(Petal.Width))]
-- iris[,sum(Petal.Width)]
+- iris[.( sum( Petal.Width ) ) ]
+- iris[ , .( sum( Petal.Width ) ) ]
+- iris[, sum( Petal.Width ) ]
 - Both 2 and 3
 
 *** =hint
@@ -481,17 +481,17 @@ msg_success <- "Exactly! When only preforming one operation in j it is not requi
 test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_bad, msg_bad, msg_success)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:99494dddc7
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 5: Adding New Data
 
 Which of the following code shown below would be used to add two new columns to the `iris` data set
 
 
 *** =instructions
-- iris[,.(New.Col1 = Petal.Length*2, New.Col2 = Petal.Length/2)]
-- iris[,.(New.Col1 := Petal.Length*2, New.Col2 := Petal.Length/2)]
-- iris[, `:=` (New.Col1 = Petal.Length*2, New.Col2 = Petal.Length/2)]
-- iris[, `:=`.(New.Col1 = Petal.Length*2, New.Col2 = Petal.Length/2)]
+- iris[ ,.( New.Col1 = Petal.Length * 2, New.Col2 = Petal.Length / 2 ) ]
+- iris[ ,.( New.Col1 := Petal.Length * 2, New.Col2 := Petal.Length / 2 ) ]
+- iris[ , `:=` ( New.Col1 = Petal.Length * 2, New.Col2 = Petal.Length / 2 ) ]
+- iris[ , `:=`.( New.Col1 = Petal.Length * 2, New.Col2 = Petal.Length / 2 ) ]
 
 *** =hint
 - special assignment notation is needed when creating new columns
@@ -512,7 +512,7 @@ msg_success <- "Exactly! Good Work!"
 test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_bad, msg_success, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:a42ac9703f
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The by arrgument in data.table
 
 The by argument in data.table is incredibly useful because it allows you to summarize data by various variables.
@@ -535,6 +535,7 @@ iris = as.data.table(iris)
 *** =sample_code
 ```{r}
 # Find the average Petal Length by Species and assign it to a variable named avg_petal_length
+
 # Find the average Petal Length by Species and Petal Width and assign it to a variable named avg_petal_length2
 
 ```
@@ -560,7 +561,7 @@ test_object("avg_petal_length2")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:0221f1ea6a
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 6: What is by
 
 Which of the following statements best represents the functionality of the `by` argument
@@ -590,12 +591,12 @@ msg_success <- "Exactly! It allows you to group data by multiple columns!"
 test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:cc97a01829
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 7: Using by
 
 Which statement best describes the call shown below
 
-`iris[ Sepal.Width > 2 , sum(Petal.Length), by = .(Species, Sepal.Length ) ]`
+`iris[ Sepal.Width > 2 , sum(Petal.Length), by = .( Species , Sepal.Length ) ]`
 *** =instructions
 - Sum values of Petal.Length, grouped by Species and Sepal.Length
 - Sum values of Petal.Length only for instances where Sepal.Width is greater than 2, grouped by Sepal.Length then Species 
