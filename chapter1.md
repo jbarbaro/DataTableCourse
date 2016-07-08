@@ -117,7 +117,7 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eb7c16742f
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris dataset 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the dataset we will be using for a majority of the exercises.
@@ -154,7 +154,7 @@ test_object("iris")
 iris
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:87d0936300
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris dataset, lets start applying some of this knowledge.
@@ -228,6 +228,7 @@ test_object("filter_four")
 
 Have a look at the code below. Chose the option that represents the output from this call.
 
+`iris[ c( 3 , 1 , .N ) ]`
 *** =instructions
 - Return the third, first and last row from the `iris` dataset in that order
 - Return the first, third and last row from the `iris` dataset in that order
@@ -235,14 +236,8 @@ Have a look at the code below. Chose the option that represents the output from 
 - Return an error as there is a missing comma to indicate you are operating the `i` argument
 
 *** =hint
+- Order does matter when selecting rows in `data.table`
 
-
-*** =sample_code
-```{r}
-
-# iris[c(3,1,.N)]
-
-```
 
 *** =sct
 ```{r}
@@ -251,15 +246,15 @@ Have a look at the code below. Chose the option that represents the output from 
 # testwhat R package
 
 msg_bad <- "That is not correct!"
-msg_success <- "Exactly! There seems to be a very bad action movie in the dataset."
+msg_success <- "Exactly! The third, first and last column would be selected all in that order."
 
 # Use test_mc() to grade multiple choice exercises. 
 # Pass the correct option (Action, option 2 in the instructions) to correct.
 # Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
-test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
+test_mc(correct = 1, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:a317bc7e07
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The j arrgument in data.table
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
@@ -319,7 +314,7 @@ test_object("Avg_Sepal_Width")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:277c574399
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The by arrgument in data.table
 
 The by argument in data.table is incredibly useful because it allows you to summarize data by various variables.
@@ -368,7 +363,7 @@ test_object("avg_petal_length2")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:f5d067a826
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Creating data.tables
 
 Creating data.tables is almost identical to creating data.frames in R. 
