@@ -117,7 +117,85 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:9703806208
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+## Creating data.tables
+
+Creating data.tables is almost identical to creating data.frames in R. 
+
+If you are not familiar with the process, it can be broken down into two steps:
+
+1. Create vectors of data you want to include in your data.table, make sure they are equal length as they will become the columns
+
+2. Call the vectors into the function `data.table()` and assign the output to a variable
+
+See the example below:
+
+1.
+
+A = 1:5
+B = LETTERS[1:5]
+
+2. 
+
+my_DT = data.table(A,B)
+
+Alternatively you might have a data set that is being stored as a data.frame that you want to convert to a data.table. You can do this using the `as.data.table` function.
+
+*** =instructions
+- Create a new data.table named `my_DT` which has three columns. The first column named `Alpha` with data A:J, the second column named `Numeric` with data 1:10 and a third column named `small_alpha` with data a:j
+
+*** =hint
+- Create the vectors first before calling them into data.table()
+
+*** =pre_exercise_code
+```{r}
+library(data.table)
+iris = as.data.table(iris)
+```
+
+*** =sample_code
+```{r}
+# Create a vector named Alpha
+
+# Create a vector named Numeric
+
+# Create a vector named small_alpha
+
+# Create a data.table named my_DT
+
+```
+
+*** =solution
+```{r}
+
+# Create a vector named Alpha
+
+Alpha <-  LETTERS[1:10] 
+
+# Create a vector named Numeric
+
+Numeric <- 1:10
+
+# Create a vector named small_alpha
+
+small_alpha <- Letters[1:10]
+
+# Create a data.table named my_DT
+
+my_DT <- data.table(Alpha,Numeric,small_alpha)
+
+```
+
+*** =sct
+```{r}
+test_object("Alpha")
+test_object("Numeric")
+test_object("small_alpha")
+test_object("my_DT")
+```
+
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris data set 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the data set we will be using for a majority of the exercises.
@@ -184,7 +262,7 @@ test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:a52db8f1a0
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris data set, lets start applying some of this knowledge.
@@ -253,7 +331,7 @@ test_object("filter_three")
 test_object("filter_four")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:38aeac3fb5
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz : Selecting Rows
 
 Have a look at the code below. Chose the option that represents the output from this call.
@@ -284,21 +362,21 @@ msg_success <- "Exactly! The third, first and last column would be selected all 
 test_mc(correct = 1, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:c5af3502aa
-## Quiz : Selecting Rows
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+## Quiz : Filtering Rows
 
-Have a look at the code below. Chose the option that represents the output from this call.
+Which statement best decribes the call shown below
 
-`iris[ c( 3 , 1 , .N ) ]`
+`iris[ Sepal.Width > 2 | Petal.Length < 1 ]`
+
 *** =instructions
-- Return the third, first and last row from the `iris` data set in that order
-- Return the first, third and last row from the `iris` data set in that order
-- Return an error as `.N` is not a valid command
-- Return an error as there is a missing comma to indicate you are operating the `i` argument
+- Filter the iris data set for rows where Sepal.Width is geater than 2 and Petal.Length is less than 1
+- An error as th `|` character is not valid in the `i attribute`
+- Filter the iris data set for rows where Sepal.Width is geater than 2 or Petal.Length is less than 1
+- None of the above
 
 *** =hint
-- Order does matter when selecting rows in `data.table`
-
+- Either condition can be true for the row to be displayed 
 
 *** =sct
 ```{r}
@@ -307,15 +385,15 @@ Have a look at the code below. Chose the option that represents the output from 
 # testwhat R package
 
 msg_bad <- "That is not correct!"
-msg_success <- "Exactly! The third, first and last column would be selected all in that order."
+msg_success <- "Exactly! The "|" attribute represents an "or" condtion."
 
 # Use test_mc() to grade multiple choice exercises. 
 # Pass the correct option (Action, option 2 in the instructions) to correct.
 # Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
-test_mc(correct = 1, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
+test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:7b23a9af9c
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The j arrgument in data.table
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
@@ -375,7 +453,67 @@ test_object("Avg_Sepal_Width")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:489d4b6f27
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+## Quiz : What is data.table
+
+Which of the following statements best represents `data.table` as a data storage tool
+
+*** =instructions
+- A data storage tool which works exceptionaly well with large data sets
+- A data storage tool that allows for implicite data manipulation
+- A data store tool that allows for faster and more efficient coding
+- All of the above
+
+*** =hint
+- `data.table` has many positive qualities
+
+
+*** =sct
+```{r}
+# The sct section defines the Submission Correctness Tests (SCTs) used to
+# evaluate the student's response. All functions used here are defined in the 
+# testwhat R package
+
+msg_bad <- "That is not correct!"
+msg_success <- "Exactly! data.table is all this and more!"
+
+# Use test_mc() to grade multiple choice exercises. 
+# Pass the correct option (Action, option 2 in the instructions) to correct.
+# Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
+test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
+```
+
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+## Quiz : What is data.table
+
+Which of the following statements best represents `data.table` as a data storage tool
+
+*** =instructions
+- A data storage tool which works exceptionaly well with large data sets
+- A data storage tool that allows for implicite data manipulation
+- A data store tool that allows for faster and more efficient coding
+- All of the above
+
+*** =hint
+- `data.table` has many positive qualities
+
+
+*** =sct
+```{r}
+# The sct section defines the Submission Correctness Tests (SCTs) used to
+# evaluate the student's response. All functions used here are defined in the 
+# testwhat R package
+
+msg_bad <- "That is not correct!"
+msg_success <- "Exactly! data.table is all this and more!"
+
+# Use test_mc() to grade multiple choice exercises. 
+# Pass the correct option (Action, option 2 in the instructions) to correct.
+# Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
+test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The by arrgument in data.table
 
 The by argument in data.table is incredibly useful because it allows you to summarize data by various variables.
@@ -423,82 +561,64 @@ test_object("avg_petal_length2")
 
 ```
 
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+## Quiz : What is data.table
 
---- type:NormalExercise lang:r xp:100 skills:1 key:d357415005
-## Creating data.tables
-
-Creating data.tables is almost identical to creating data.frames in R. 
-
-If you are not familiar with the process, it can be broken down into two steps:
-
-1. Create vectors of data you want to include in your data.table, make sure they are equal length as they will become the columns
-
-2. Call the vectors into the function `data.table()` and assign the output to a variable
-
-See the example below:
-
-1.
-
-A = 1:5
-B = c("A","B","C","D","E")
-
-2. 
-
-my_DT = data.table(A,B)
-
-Alternatively you might have a data set that is being stored as a data.frame that you want to convert to a data.table. You can do this using the `as.data.table` function.
+Which of the following statements best represents `data.table` as a data storage tool
 
 *** =instructions
-- Create a new data.table named `my_DT` which has three columns. The first column named `Alpha` with data A:J, the second column named `Numeric` with data 1:10 and a third column named `small_alpha` with data a:j
+- A data storage tool which works exceptionaly well with large data sets
+- A data storage tool that allows for implicite data manipulation
+- A data store tool that allows for faster and more efficient coding
+- All of the above
 
 *** =hint
-- Create the vectors first before calling them into data.table()
+- `data.table` has many positive qualities
 
-*** =pre_exercise_code
-```{r}
-library(data.table)
-iris = as.data.table(iris)
-```
-
-*** =sample_code
-```{r}
-# Create a vector named Alpha
-
-# Create a vector named Numeric
-
-# Create a vector named small_alpha
-
-# Create a data.table named my_DT
-
-```
-
-*** =solution
-```{r}
-
-# Create a vector named Alpha
-
-Alpha <- c("A","B","C","D","E","F","G","H","I","J")
-
-# Create a vector named Numeric
-
-Numeric <- 1:10
-
-# Create a vector named small_alpha
-
-small_alpha <- c("a","b","c","d","e","f","g","h","i","j")
-
-# Create a data.table named my_DT
-
-my_DT <- data.table(Alpha,Numeric,small_alpha)
-
-```
 
 *** =sct
 ```{r}
-test_object("Alpha")
-test_object("Numeric")
-test_object("small_alpha")
-test_object("my_DT")
+# The sct section defines the Submission Correctness Tests (SCTs) used to
+# evaluate the student's response. All functions used here are defined in the 
+# testwhat R package
+
+msg_bad <- "That is not correct!"
+msg_success <- "Exactly! data.table is all this and more!"
+
+# Use test_mc() to grade multiple choice exercises. 
+# Pass the correct option (Action, option 2 in the instructions) to correct.
+# Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
+test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
+```
+
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+## Quiz : What is data.table
+
+Which of the following statements best represents `data.table` as a data storage tool
+
+*** =instructions
+- A data storage tool which works exceptionaly well with large data sets
+- A data storage tool that allows for implicite data manipulation
+- A data store tool that allows for faster and more efficient coding
+- All of the above
+
+*** =hint
+- `data.table` has many positive qualities
+
+
+*** =sct
+```{r}
+# The sct section defines the Submission Correctness Tests (SCTs) used to
+# evaluate the student's response. All functions used here are defined in the 
+# testwhat R package
+
+msg_bad <- "That is not correct!"
+msg_success <- "Exactly! data.table is all this and more!"
+
+# Use test_mc() to grade multiple choice exercises. 
+# Pass the correct option (Action, option 2 in the instructions) to correct.
+# Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
+test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
 
