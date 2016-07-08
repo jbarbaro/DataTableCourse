@@ -117,7 +117,7 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:60acbd8be0
 ## Creating data.tables
 
 Creating data.tables is almost identical to creating data.frames in R. 
@@ -195,7 +195,7 @@ test_object("my_DT")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:48aa7eff5f
 ## Introduction the the Iris data set 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the data set we will be using for a majority of the exercises.
@@ -262,7 +262,7 @@ test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:1c552ff1ac
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris data set, lets start applying some of this knowledge.
@@ -331,7 +331,7 @@ test_object("filter_three")
 test_object("filter_four")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:9eb37388fa
 ## Quiz : Selecting Rows
 
 Have a look at the code below. Chose the option that represents the output from this call.
@@ -362,7 +362,7 @@ msg_success <- "Exactly! The third, first and last column would be selected all 
 test_mc(correct = 1, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:823b09aba3
 ## Quiz : Filtering Rows
 
 Which statement best decribes the call shown below
@@ -393,7 +393,7 @@ msg_success <- "Exactly! The "|" attribute represents an or condtion."
 test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:bd9cf81fc3
 ## The j arrgument in data.table
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
@@ -453,7 +453,7 @@ test_object("Avg_Sepal_Width")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:8f27c90ca9
 ## Quiz : What is love
 
 Which of the following statements best represents `data.table` as a data storage tool
@@ -483,7 +483,7 @@ msg_success <- "Exactly! data.table is all this and more!"
 test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:9af965576a
 ## Quiz : What is life
 
 Which of the following statements best represents `data.table` as a data storage tool
@@ -513,7 +513,7 @@ msg_success <- "Exactly! data.table is all this and more!"
 test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:0cbc8c0087
 ## The by arrgument in data.table
 
 The by argument in data.table is incredibly useful because it allows you to summarize data by various variables.
@@ -561,7 +561,7 @@ test_object("avg_petal_length2")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:52fa625d05
 ## Quiz : What is this
 
 Which of the following statements best represents `data.table` as a data storage tool
@@ -591,7 +591,7 @@ msg_success <- "Exactly! data.table is all this and more!"
 test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:b6df89a8d2
 ## Quiz : What is data.table
 
 Which of the following statements best represents `data.table` as a data storage tool
