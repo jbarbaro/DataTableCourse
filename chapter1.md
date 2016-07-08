@@ -117,7 +117,7 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:c90f9fe441
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Creating data.tables
 
 Creating data.tables is almost identical to creating data.frames in R. 
@@ -195,7 +195,7 @@ test_object("my_DT")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:c5442d2903
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris data set 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the data set we will be using for a majority of the exercises.
@@ -237,8 +237,8 @@ iris
 Which of the following statements best represents `data.table` as a data storage tool
 
 *** =instructions
-- A data storage tool which works exceptionaly well with large data sets
-- A data storage tool that allows for implicite data manipulation
+- A data storage tool which works exceptionally well with large data sets
+- A data storage tool that allows for implicit data manipulation
 - A data store tool that allows for faster and more efficient coding
 - All of the above
 
@@ -262,7 +262,7 @@ test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:9b7b5b9777
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris data set, lets start applying some of this knowledge.
@@ -331,7 +331,7 @@ test_object("filter_three")
 test_object("filter_four")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:2d2db5c64f
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz : Selecting Rows
 
 Have a look at the code below. Chose the option that represents the output from this call.
@@ -362,17 +362,17 @@ msg_success <- "Exactly! The third, first and last column would be selected all 
 test_mc(correct = 1, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:091aa7bc21
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz : Filtering Rows
 
-Which statement best decribes the call shown below
+Which statement best describes the call shown below
 
 `iris[ Sepal.Width > 2 | Petal.Length < 1 ]`
 
 *** =instructions
-- Filter the iris data set for rows where Sepal.Width is geater than 2 and Petal.Length is less than 1
-- An error as th `|` character is not valid in the `i attribute`
-- Filter the iris data set for rows where Sepal.Width is geater than 2 or Petal.Length is less than 1
+- Filter the iris data set for rows where Sepal.Width is greater than 2 and Petal.Length is less than 1
+- An error as the `|` character is not valid in the `i argument`
+- Filter the iris data set for rows where Sepal.Width is greater than 2 or Petal.Length is less than 1
 - None of the above
 
 *** =hint
@@ -393,7 +393,7 @@ msg_success <- "Exactly! The call represents an or condtion filter."
 test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:cc94bd1fc9
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The j arrgument in data.table
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
@@ -453,19 +453,19 @@ test_object("Avg_Sepal_Width")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4a4eb9062c
-## Quiz : What is love
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+## Quiz : Manipulating existing data
 
-Which of the following statements best represents `data.table` as a data storage tool
+Which of the following code shown below would be used to find the sum of the column `Petal.Width` in the `iris` data set
 
 *** =instructions
-- A data storage tool which works exceptionaly well with large data sets
-- A data storage tool that allows for implicite data manipulation
-- A data store tool that allows for faster and more efficient coding
-- All of the above
+- iris[.(sum(Petal.Width))]
+- iris[,.(sum(Petal.Width))]
+- iris[,sum(Petal.Width)]
+- Both 2 and 3
 
 *** =hint
-- `data.table` has many positive qualities
+- When only preforming one operation in j you don't need .()
 
 
 *** =sct
@@ -475,7 +475,7 @@ Which of the following statements best represents `data.table` as a data storage
 # testwhat R package
 
 msg_bad <- "That is not correct!"
-msg_success <- "Exactly! data.table is all this and more!"
+msg_success <- "Exactly! When only preforming one operation in j it is not required to use .()"
 
 # Use test_mc() to grade multiple choice exercises. 
 # Pass the correct option (Action, option 2 in the instructions) to correct.
@@ -483,19 +483,20 @@ msg_success <- "Exactly! data.table is all this and more!"
 test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:1d0ab5af60
-## Quiz : What is life
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+## Quiz : Adding New Data
 
-Which of the following statements best represents `data.table` as a data storage tool
+Which of the following code shown below would be used to add two new columns to the `iris` data set
+
 
 *** =instructions
-- A data storage tool which works exceptionaly well with large data sets
-- A data storage tool that allows for implicite data manipulation
-- A data store tool that allows for faster and more efficient coding
-- All of the above
+- iris[,.(New.Col1 = Petal.Length*2, New.Col2 = Petal.Length/2)]
+- iris[,.(New.Col1 := Petal.Length*2, New.Col2 := Petal.Length/2)]
+- iris[, `:=` (New.Col1 = Petal.Length*2, New.Col2 = Petal.Length/2)]
+- iris[, `:=`.(New.Col1 = Petal.Length*2, New.Col2 = Petal.Length/2)]
 
 *** =hint
-- `data.table` has many positive qualities
+- special assignment notation is needed when creating new columns
 
 
 *** =sct
@@ -505,15 +506,15 @@ Which of the following statements best represents `data.table` as a data storage
 # testwhat R package
 
 msg_bad <- "That is not correct!"
-msg_success <- "Exactly! data.table is all this and more!"
+msg_success <- "Exactly! Good Work!"
 
 # Use test_mc() to grade multiple choice exercises. 
 # Pass the correct option (Action, option 2 in the instructions) to correct.
 # Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
-test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
+test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ceca090495
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The by arrgument in data.table
 
 The by argument in data.table is incredibly useful because it allows you to summarize data by various variables.
@@ -561,19 +562,19 @@ test_object("avg_petal_length2")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:9e7fea2991
-## Quiz : What is this
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+## Quiz : What is by
 
-Which of the following statements best represents `data.table` as a data storage tool
+Which of the following statements best represents the functionality of the `by` argument
 
 *** =instructions
-- A data storage tool which works exceptionaly well with large data sets
-- A data storage tool that allows for implicite data manipulation
-- A data store tool that allows for faster and more efficient coding
-- All of the above
+- Allows you to summarize data by a single column in the data set
+- Allows you to summarize data by a column or multiple columns in the data set
+- Allows you to call additional functions in parallel to the j argument
+- Is a way of keeping a column with all it's original data in the output  
 
 *** =hint
-- `data.table` has many positive qualities
+- Similar functionality to `group_by` in SQL and data.frame
 
 
 *** =sct
@@ -583,27 +584,28 @@ Which of the following statements best represents `data.table` as a data storage
 # testwhat R package
 
 msg_bad <- "That is not correct!"
-msg_success <- "Exactly! data.table is all this and more!"
+msg_success <- "Exactly! It allows you to group data by multiple columns!"
 
 # Use test_mc() to grade multiple choice exercises. 
 # Pass the correct option (Action, option 2 in the instructions) to correct.
 # Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
-test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
+test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:0ceaca822b
-## Quiz : What is data.table
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+## Quiz : Using by
 
-Which of the following statements best represents `data.table` as a data storage tool
+Which statement best describes the call shown below
 
+`iris[ Sepal.Width > 2 , sum(Petal.Length), by = .(Species, Sepal.Length ) ]`
 *** =instructions
-- A data storage tool which works exceptionaly well with large data sets
-- A data storage tool that allows for implicite data manipulation
-- A data store tool that allows for faster and more efficient coding
-- All of the above
+- Sum values of Petal.Length, grouped by Species and Sepal.Length
+- Sum values of Petal.Length only for instances where Sepal.Width is greater than 2, grouped by Sepal.Length then Species 
+- An error since `.()` is not used in the j argument
+- Sum values of Petal.Length only for instances where Sepal.Width is greater than 2, grouped by Species then Sepal.Length
 
 *** =hint
-- `data.table` has many positive qualities
+- Similar functionality to `group_by` in SQL and data.frame
 
 
 *** =sct
@@ -613,14 +615,13 @@ Which of the following statements best represents `data.table` as a data storage
 # testwhat R package
 
 msg_bad <- "That is not correct!"
-msg_success <- "Exactly! data.table is all this and more!"
+msg_success <- "Exactly! Good Work!"
 
 # Use test_mc() to grade multiple choice exercises. 
 # Pass the correct option (Action, option 2 in the instructions) to correct.
 # Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
 test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
-
 
 
 
