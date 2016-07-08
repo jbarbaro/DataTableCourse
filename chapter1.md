@@ -123,7 +123,7 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:95a28d1bb9
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Creating data.tables
 
 Creating data.tables is almost identical to creating data.frames in R. 
@@ -200,37 +200,7 @@ test_object("small_alpha")
 test_object("my_DT")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
-## Quiz 1: What is data.table
-
-Which of the following statements best represents `data.table` as a data storage tool
-
-*** =instructions
-- A data storage tool which works exceptionally well with large data sets
-- A data storage tool that allows for implicit data manipulation
-- A data store tool that allows for faster and more efficient coding
-- All of the above
-
-*** =hint
-- `data.table` has many positive qualities
-
-
-*** =sct
-```{r}
-# The sct section defines the Submission Correctness Tests (SCTs) used to
-# evaluate the student's response. All functions used here are defined in the 
-# testwhat R package
-
-msg_bad <- "That is not correct!"
-msg_success <- "Exactly! data.table is all this and more!"
-
-# Use test_mc() to grade multiple choice exercises. 
-# Pass the correct option (Action, option 2 in the instructions) to correct.
-# Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
-test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_bad, msg_bad, msg_success)) 
-```
-
---- type:NormalExercise lang:r xp:100 skills:1 key:c6aa863e90
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris data set 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the data set we will be using for a majority of the exercises.
@@ -266,13 +236,43 @@ test_object("iris")
 ```
 iris
 
---- type:VideoExercise lang:r xp:50 skills:1 key:937e682770
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+## Quiz 1: What is data.table
+
+Which of the following statements best represents `data.table` as a data storage tool
+
+*** =instructions
+- A data storage tool which works exceptionally well with large data sets
+- A data storage tool that allows for implicit data manipulation
+- A data store tool that allows for faster and more efficient coding
+- All of the above
+
+*** =hint
+- `data.table` has many positive qualities
+
+
+*** =sct
+```{r}
+# The sct section defines the Submission Correctness Tests (SCTs) used to
+# evaluate the student's response. All functions used here are defined in the 
+# testwhat R package
+
+msg_bad <- "That is not correct!"
+msg_success <- "Exactly! data.table is all this and more!"
+
+# Use test_mc() to grade multiple choice exercises. 
+# Pass the correct option (Action, option 2 in the instructions) to correct.
+# Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
+test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_bad, msg_bad, msg_success)) 
+```
+
+--- type:VideoExercise lang:r xp:50 skills:1 key:24df2f6cd0
 ## Section Two: The i arrgument in data.table
 
 *** =video_link
 //player.vimeo.com/video/154783078
 
---- type:NormalExercise lang:r xp:100 skills:1 key:948ea05951
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The i Arrgument Exercise
 
 Now that you have had a basic introduction to the data.table syntax and the iris data set, lets start applying some of this knowledge.
@@ -341,7 +341,7 @@ test_object("filter_three")
 test_object("filter_four")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:6f948d7873
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 2: Selecting Rows
 
 Have a look at the code below. Chose the option that represents the output from this call.
@@ -372,7 +372,7 @@ msg_success <- "Exactly! The third, first and last column would be selected all 
 test_mc(correct = 1, feedback_msgs = c(msg_success, msg_bad, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:57a37cab77
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 3: Filtering Rows
 
 Which statement best describes the call shown below
@@ -403,13 +403,13 @@ msg_success <- "Exactly! The call represents an or condtion filter."
 test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_bad, msg_success, msg_bad)) 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:4b902c6039
+--- type:VideoExercise lang:r xp:50 skills:1 key:24df2f6cd0
 ## Section Three: The j arrgument in data.table
 
 *** =video_link
 //player.vimeo.com/video/154783078
 
---- type:NormalExercise lang:r xp:100 skills:1 key:6fdf749cde
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The j Arrgument Exercise
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
@@ -469,7 +469,7 @@ test_object("Avg_Sepal_Width")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:c3e4791718
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 4: Manipulating existing data
 
 Which of the following code shown below would be used to find the sum of the column `Petal.Width` in the `iris` data set
@@ -499,7 +499,7 @@ msg_success <- "Exactly! When only preforming one operation in j it is not requi
 test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_bad, msg_bad, msg_success)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:7eb88a0e9e
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 5: Adding New Data
 
 Which of the following code shown below would be used to add two new columns to the `iris` data set
@@ -530,14 +530,14 @@ msg_success <- "Exactly! Good Work!"
 test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_bad, msg_success, msg_bad)) 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:82fb4fd6ad
+--- type:VideoExercise lang:r xp:50 skills:1 key:24df2f6cd0
 ## Section Four: The by arrgument in data.table
 
 *** =video_link
 //player.vimeo.com/video/154783078
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:51025d8e06
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The by Arrgument Exercise
 
 The by argument in data.table is incredibly useful because it allows you to summarize data by various variables.
@@ -586,7 +586,7 @@ test_object("avg_petal_length2")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:f2a2b80f10
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 6: What is by
 
 Which of the following statements best represents the functionality of the `by` argument
@@ -616,7 +616,7 @@ msg_success <- "Exactly! It allows you to group data by multiple columns!"
 test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:5eccc8c09a
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 7: Using by
 
 Which statement best describes the call shown below
