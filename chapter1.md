@@ -100,7 +100,7 @@ data.frame = DF %>%
        filter( V2 =="A" | V2 =="C") %>% 
        summarise( V4 = sum( V4 ) ) 
 
-With data table
+# With data table
 
 setkey(DT,"V2")
 data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
@@ -117,7 +117,7 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:af27b0f2de
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Creating data.tables
 
 Creating data.tables is almost identical to creating data.frames in R. 
@@ -195,7 +195,7 @@ test_object("my_DT")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:9a75e57ee8
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Introduction the the Iris data set 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the data set we will be using for a majority of the exercises.
@@ -262,7 +262,7 @@ test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:fe8efd5f70
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris data set, lets start applying some of this knowledge.
@@ -331,7 +331,7 @@ test_object("filter_three")
 test_object("filter_four")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:1dfc61fb39
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 2: Selecting Rows
 
 Have a look at the code below. Chose the option that represents the output from this call.
@@ -362,7 +362,7 @@ msg_success <- "Exactly! The third, first and last column would be selected all 
 test_mc(correct = 1, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:d2aea74bd4
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 3: Filtering Rows
 
 Which statement best describes the call shown below
@@ -393,7 +393,7 @@ msg_success <- "Exactly! The call represents an or condtion filter."
 test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:f1e1ec3a1d
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The j arrgument in data.table
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
@@ -453,7 +453,7 @@ test_object("Avg_Sepal_Width")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:774daf50ce
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 4: Manipulating existing data
 
 Which of the following code shown below would be used to find the sum of the column `Petal.Width` in the `iris` data set
@@ -483,7 +483,7 @@ msg_success <- "Exactly! When only preforming one operation in j it is not requi
 test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:1ab6b92d23
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 5: Adding New Data
 
 Which of the following code shown below would be used to add two new columns to the `iris` data set
@@ -514,7 +514,7 @@ msg_success <- "Exactly! Good Work!"
 test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:7c620cd302
+--- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## The by arrgument in data.table
 
 The by argument in data.table is incredibly useful because it allows you to summarize data by various variables.
@@ -562,7 +562,7 @@ test_object("avg_petal_length2")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:dd938bf961
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 6: What is by
 
 Which of the following statements best represents the functionality of the `by` argument
@@ -592,7 +592,7 @@ msg_success <- "Exactly! It allows you to group data by multiple columns!"
 test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4eb1060a4d
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
 ## Quiz 7: Using by
 
 Which statement best describes the call shown below
