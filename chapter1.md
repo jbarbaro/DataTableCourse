@@ -117,7 +117,7 @@ data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
 ```{r}
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:1969cc8a2a
 ## Creating data.tables
 
 Creating data.tables is almost identical to creating data.frames in R. 
@@ -195,7 +195,7 @@ test_object("my_DT")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:41b9a8a43c
 ## Introduction the the Iris data set 
 
 Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the data set we will be using for a majority of the exercises.
@@ -262,7 +262,7 @@ test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:f0adb70ed1
 ## The i arrgument in data.table
 
 Now that you have had a basic introduction to the data.table syntax and the iris data set, lets start applying some of this knowledge.
@@ -331,7 +331,7 @@ test_object("filter_three")
 test_object("filter_four")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:74944462a1
 ## Quiz : Selecting Rows
 
 Have a look at the code below. Chose the option that represents the output from this call.
@@ -362,7 +362,7 @@ msg_success <- "Exactly! The third, first and last column would be selected all 
 test_mc(correct = 1, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4394b8a4d4
 ## Quiz : Filtering Rows
 
 Which statement best describes the call shown below
@@ -393,7 +393,7 @@ msg_success <- "Exactly! The call represents an or condtion filter."
 test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:55e2544eed
 ## The j arrgument in data.table
 
 Now that you have had some time to practice filtering data.tables, let's look at using the j argument.
@@ -453,7 +453,7 @@ test_object("Avg_Sepal_Width")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:e469b2e205
 ## Quiz : Manipulating existing data
 
 Which of the following code shown below would be used to find the sum of the column `Petal.Width` in the `iris` data set
@@ -483,7 +483,7 @@ msg_success <- "Exactly! When only preforming one operation in j it is not requi
 test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:3525c408e7
 ## Quiz : Adding New Data
 
 Which of the following code shown below would be used to add two new columns to the `iris` data set
@@ -514,7 +514,7 @@ msg_success <- "Exactly! Good Work!"
 test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
+--- type:NormalExercise lang:r xp:100 skills:1 key:4f507471c9
 ## The by arrgument in data.table
 
 The by argument in data.table is incredibly useful because it allows you to summarize data by various variables.
@@ -562,7 +562,7 @@ test_object("avg_petal_length2")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:f5404a40df
 ## Quiz : What is by
 
 Which of the following statements best represents the functionality of the `by` argument
@@ -592,7 +592,7 @@ msg_success <- "Exactly! It allows you to group data by multiple columns!"
 test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4279d28502
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:73a4003857
 ## Quiz : Using by
 
 Which statement best describes the call shown below
