@@ -8,7 +8,7 @@ attachments :
 ## Section One: Getting started with data.table
 
 *** =video_link
-https://vimeo.com/174520168
+//vimeo.com/174520168
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Getting started Exercise
