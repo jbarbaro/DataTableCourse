@@ -1,7 +1,7 @@
-title            : Template R DataCamp Course
-author_field     : jbarbaro
-description      : This is an automatically generated demo course which will help you on your way to create an awesome DataCamp course.
-author_bio       : jbarbaro is an awesome DataCamp course creator.<br>You can say something about yourself <strong>here</strong>.
+title            : Data.Table with NLA
+author_field     : jbarbossa
+description      : This course provided by NLA is a dive into the data.table package in R
+author_bio       : 
 university       : DataCamp
 difficulty_level : 2
-time_needed      : 1 hour
+time_needed      : 3 hourS
