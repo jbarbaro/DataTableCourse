@@ -1,14 +1,20 @@
 ---
 title       : Introduction to data.table
-description : This chapter provides a basic overview of `data.table` by introducing the user to the methodology and syntax used for data analytics
+description : This chapter provides a basic overview of data.table by introducing the user to the methodology and syntax used for data analytics
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
+
+--- type:VideoExercise lang:r xp:50 skills:1 key:24df2f6cd0
+## Welcome to The Course
+
+*** =video_link
+//player.vimeo.com/video/174520168
 
 --- type:VideoExercise lang:r xp:50 skills:1 key:24df2f6cd0
 ## Section One: Getting started with data.table
 
 *** =video_link
-//player.vimeo.com/video/174520168
+//player.vimeo.com/video/174519332
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:eefb68970c
 ## Getting started Exercise
@@ -270,7 +276,7 @@ test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_bad, msg_bad, msg_success))
 ## Section Two: The i arrgument in data.table
 
 *** =video_link
-//player.vimeo.com/video/154783078
+//player.vimeo.com/video/174520169
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:00e1a144dd
 ## The i Arrgument Exercise
@@ -407,7 +413,7 @@ test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_bad, msg_success, msg_bad))
 ## Section Three: The j arrgument in data.table
 
 *** =video_link
-//player.vimeo.com/video/154783078
+//player.vimeo.com/video/174520170
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:bc99a682a0
 ## The j Arrgument Exercise
@@ -534,7 +540,7 @@ test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_bad, msg_success, msg_bad))
 ## Section Four: The by arrgument in data.table
 
 *** =video_link
-//player.vimeo.com/video/154783078
+//player.vimeo.com/video/174519375
 
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:ae605fcdfa
