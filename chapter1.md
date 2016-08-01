@@ -87,36 +87,7 @@ DT <- data.table(V1 = c("a","b","b","c","a") , V2 = c("A","B","C","A","C") , V3 
 
 *** =sample_code
 ```{r}
-### Speed Test
-
-m = matrix(1, nrow = 2e4L, ncol = 100L)
-DF = as.data.frame(m) 
-DT = as.data.table(m)
-
-# With data frame
-
-system.time(for (i in 1:1000) DF[i, 1] = i) 
-## speed = 15.856 seconds 
-
-# With data table
-
-system.time(for (i in 1:1000) DT[i, V1 := i])
-## speed = 0.279 seconds 
-
-### Efficiency Test
-
-# With data frame
-
-data.frame = DF %>% 
-       group_by( V2 ) %>% 
-       filter( V2 =="A" | V2 =="C") %>% 
-       summarise( V4 = sum( V4 ) ) 
-
-# With data table
-
-setkey(DT,"V2")
-data.table = DT [ c( "A" , "C" ) , .( V4 = sum( V4 ) ) , by = .EACHI ]
-
+# Click Submit Answer to Continue
 
 ```
 
