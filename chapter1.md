@@ -68,7 +68,7 @@ In `data.frame` the actions for data manipulation need to be explicitly called, 
 
 If these two examples were not enough for you then hopefully during the duration of this course you begin to see the value of using data.table for big data manipulation and analytics.
 
-You will begin this course by working through the power point presentation found in the `slides` tab to the right of the screen. This presentation will get you accustomed to the `data.table` syntax and show you some examples of simple data manipulation. 
+You will begin this course by working through the power point presentation found in the `slides` tab to the right of the screen. This presentation will get you accustomed to the `data.table` syntax and show you some examples of simple data manipulation. It can also be used to review the material offline. 
 
 *** =instructions
 - Read through power point presentation
@@ -180,7 +180,7 @@ test_object("my_DT")
 --- type:NormalExercise lang:r xp:100 skills:1 key:af30f5ffe2
 ## Introduction the the Iris data set 
 
-Before you move on to practicing the techniques described in the power point material, it is important to familiarize yourself with the data set we will be using for a majority of the exercises.
+Before you move on to practicing the techniques described in the following videos, it is important to familiarize yourself with the data set we will be using for a majority of the exercises.
 
 The iris data set is preloaded in R, and consists of 5 columns and 150 rows. The data set compares three different Species of flowers: Setosa, Versicolor and Virginica across four different variables: Sepal.Length, Sepal.Width, Petal.Length, Petal.Width.
 
